@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { Link } from "react-router-dom"
 
 export default function Form() {
      const [name, setName] = useState("")
@@ -6,7 +7,6 @@ export default function Form() {
     
       const submit = (event) =>{
         event.preventDefault()
-        alert(`Bonjour ${name}`)
         setName("")
         
     
@@ -23,7 +23,11 @@ export default function Form() {
           <h1>Bienvenue chez nous </h1>
           <p>connectez vous</p>
           <input type="text" placeholder='Entrez votre prenom'  required onChange={supprimer} value={name}/>
-          <button>Acceder a votre espace</button>
+          <Link to="/order">
+          <button>Acceder a votre espace
+            
+          </button>
+          </Link>
          </form>
     
         </div>
