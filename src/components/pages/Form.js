@@ -1,13 +1,15 @@
 import { useState } from "react"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 export default function Form() {
      const [name, setName] = useState("")
+     const navigate = useNavigate()
      
     
       const submit = (event) =>{
         event.preventDefault()
         setName("")
+        navigate(`order/${name}`)
         
     
       }
@@ -23,11 +25,8 @@ export default function Form() {
           <h1>Bienvenue chez nous </h1>
           <p>connectez vous</p>
           <input type="text" placeholder='Entrez votre prenom'  required onChange={supprimer} value={name}/>
-          <Link to="/order">
-          <button>Acceder a votre espace
-            
-          </button>
-          </Link>
+           <button>Acceder a votre espace</button>
+          <Link to="/order">voir votre espace</Link>
          </form>
     
         </div>
